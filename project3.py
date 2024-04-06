@@ -7,13 +7,13 @@ import seaborn as sns
 import plotly
 import plotly.express as px
 import squarify
-from datetime import datetime
-from sklearn.feature_extraction.text import TfidfVectorizer
-from underthesea import word_tokenize, pos_tag, sent_tokenize
-import jieba
-import re
-import string
-from wordcloud import WordCloud
+#from datetime import datetime
+#from sklearn.feature_extraction.text import TfidfVectorizer
+#from underthesea import word_tokenize, pos_tag, sent_tokenize
+#import jieba
+#import re
+#import string
+
 
 # LOADING DATA
 df_raw = pd.read_csv('data/OnlineRetail.csv', sep=",", encoding='latin')
@@ -37,12 +37,7 @@ cust_rfm['CustomerID'] = cust_rfm['CustomerID'].apply(lambda x: str(x).replace('
 df_cust = df_fix.loc[(df_fix['Quantity'] > 0) & (df_fix['UnitPrice'] > 0)]
 df_cust['CustomerID'] = df_cust['CustomerID'].apply(lambda x: str(x).replace('.0',''))
 
-# Stopword
-STOP_WORD_FILE = 'data/stopwords-en.txt'
-with open(STOP_WORD_FILE, 'r', encoding='utf-8') as file:
-    stop_words = file.read()
 
-stop_words = stop_words.split('\n')
 
 
 # USING MENU
