@@ -16,14 +16,14 @@ import squarify
 
 
 # LOADING DATA
-df_raw = pd.read_csv('data/OnlineRetail.csv', sep=",", encoding='latin')
+df_raw = pd.read_csv('OnlineRetail.csv', sep=",", encoding='latin')
 df_id = df_raw.copy()
-df_fix = pd.read_csv('data/OnlineRetail_fix.csv', sep=",", encoding='latin')
-cust_rfm = pd.read_csv('data/Customer_RFM.csv')
-cust_seg = pd.read_csv('data/Customer_Segmentation.csv')
-df_rfm = pd.read_csv('data/OnlineRetail_RFM.csv')
+df_fix = pd.read_csv('OnlineRetail_fix.csv', sep=",", encoding='latin')
+cust_rfm = pd.read_csv('Customer_RFM.csv')
+cust_seg = pd.read_csv('Customer_Segmentation.csv')
+df_rfm = pd.read_csv('OnlineRetail_RFM.csv')
 #df_cust = pd.read_csv('data/df_cust.csv')
-rfm_agg = pd.read_csv('data/rfm_agg.csv')
+rfm_agg = pd.read_csv('rfm_agg.csv')
 #rfm_agg2 = pd.read_csv('data/rfm_agg2.csv')
 
 df_id['InvoiceDate'] = pd.to_datetime(df_id['InvoiceDate'], format='%d-%m-%Y %H:%M')
@@ -48,7 +48,7 @@ if choice == "Trang chủ":
     st.image('data/pics/Customer-Segmentation.jpg')
 
 elif choice =='Tổng quan kinh doanh':
-    st.image('data/pics/customer-segmentation.webp')
+    st.image('customer-segmentation.webp')
     st.subheader("TỔNG QUAN TÌNH HÌNH KINH DOANH ONLINE")
     st.write("##### 1. Tổng quan đơn hàng:")
     
@@ -100,7 +100,7 @@ elif choice =='Tổng quan kinh doanh':
 
 
 elif choice == "Công cụ phân nhóm":
-    st.image('data/pics/cust.png')
+    st.image('cust.png')
     st.write('### Manual Segmentation')
     st.write("""Customer Segmentation là một công cụ mạnh mẽ giúp doanh nghiệp hiểu sâu hơn về khách hàng của họ và cách tùy chỉnh chiến lược tiếp thị
                             Đây là một bước không thể thiếu để đảm bảo rằng bạn đang tiếp cận và phục vụ mọi nhóm khách hàng một cách hiệu quả""")
@@ -125,12 +125,12 @@ elif choice == "Công cụ phân nhóm":
     st.write('### Dataframe sau khi xử lý Manual Segmentation')
     st.dataframe(rfm_agg)
     st.write('### TreeMap')
-    st.image('data/RFM Segments.png')
+    st.image('RFM Segments.png')
     st.write('### Scatter Plot (RFM)')
-    st.image('data/Scatter Segments.png')
+    st.image('Scatter Segments.png')
 
 elif choice=='Phân tích khách hàng':
-    st.image('data/pics/seg.png')
+    st.image('seg.png')
     st.subheader("PHÂN TÍCH KHÁCH HÀNG")
     st.write("##### 1. Nhập thông tin khách hàng")
     type = st.radio("Nhập thông tin khách hàng", options=["Mã khách hàng", "Thông tin mua sắm của khách hàng"])
